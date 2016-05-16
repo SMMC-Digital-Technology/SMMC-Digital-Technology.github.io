@@ -1,0 +1,112 @@
+/* Go to the edge of the page */
+
+html {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #C4DDDD;
+}
+
+
+/* Header components */
+
+header {
+    width: 100%;
+    border: 2px outset grey;
+    background: #86ABAB;
+}
+
+
+/* Navigation dropdown */
+
+nav {
+    width: 100%;
+    padding: 5px;
+}
+
+nav select {
+    min-width: 100px;
+    max-width: 400px;
+    font-size: 1.5em;
+    border: 2px solid black;
+    padding: 3px;
+}
+
+
+/* Wrapper*/
+
+#wrapper {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+
+/* Class box components */
+
+.classBox {
+    width: 350px;
+    border: 3px groove black;
+    padding: 10px;
+    margin: 15px;
+    background: rgba(228, 230, 223, 0.83);
+}
+
+.classBox p {
+    font-size: 1.2em;
+}
+
+.classBox ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.classBox li {
+    border: 1px ridge white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.classBox h3 {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.classBox a {
+    width: 48%;
+    display: inline-block;
+    border: 1px solid black;
+    text-decoration: none;
+    background: lightgrey;
+}
+
+
+/* For the information box */
+
+#infobox p {
+    text-align: justify;
+}
+
+#infobox a {
+    display: inline;
+    border: none;
+    background: none;
+}
+
+
+/* Footer components */
+
+footer {
+    width: 100%;
+    border: 2px outset grey;
+    background: #86ABAB;
+    font-size: 1.2em;
+}
