@@ -3,7 +3,9 @@ var WIDTH = window.innerWidth; // or use 720
 var HEIGHT = HEIGHT = window.innerHeight; // or use 720
 
 var GRID_X = 9;
+GRID_X = Math.floor(WIDTH / 100);
 var GRID_Y = 8;
+GRID_Y = Math.floor(HEIGHT / 100);
 
 var GRID_WIDTH = WIDTH / GRID_X;
 var GRID_HEIGHT = HEIGHT / GRID_Y;
@@ -55,8 +57,6 @@ function create() {
    game.physics.startSystem(Phaser.Physics.ARCADE);
 
    game.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-   game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
-   game.scale.startFullScreen(false);
 
    playerLives = 3;
    score = 0;
@@ -83,14 +83,7 @@ function create() {
 
 
    // player
-   var px = Math.ceil(GRID_X / 2) * GRID_WIDTH + CENTRE_X;
-   var py = Math.floor(GRID_Y / 2) * GRID_HEIGHT + CENTRE_Y;
-   player = game.add.sprite(px, py, "ghost");
-   player.anchor.x = 0.5;
-   player.anchor.y = 0.5;
-   game.physics.arcade.enable(player);
-   player.body.collideWorldBounds = true;
-
+   placePlayer();
 }
 
 /**
@@ -157,6 +150,16 @@ function addHuman() {
    }
 }
 
+function placePlayer() {
+   var py = getRandomOddInRange(0, GRID_Y) * GRID_HEIGHT + CENTRE_Y;
+   var px = getRandomInRange(0, GRID_X) * GRID_WIDTH + CENTRE_X;
+   player = game.add.sprite(px, py, "ghost");
+   player.anchor.x = 0.5;
+   player.anchor.y = 0.5;
+   game.physics.arcade.enable(player);
+   player.body.collideWorldBounds = true;
+
+}
 /**
  * Game control loop
  */
