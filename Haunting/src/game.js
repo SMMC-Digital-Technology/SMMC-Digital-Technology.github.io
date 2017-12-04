@@ -110,9 +110,9 @@ function createGameWorld() {
  */
 function addTombstone(x, y) {
    var string =  "Stone_" + getRandomInRange(0,2);
-   var stone = tombstones.create(x * GRID_WIDTH + CENTRE_X, (y+1) * GRID_HEIGHT, string);
+   var stone = tombstones.create(x * GRID_WIDTH + CENTRE_X, y * GRID_HEIGHT + CENTRE_Y, string);
    stone.anchor.x = 0.5;
-   stone.anchor.y = 0.9;
+   stone.anchor.y = 0.5;
 }
 
 /**
@@ -120,15 +120,15 @@ function addTombstone(x, y) {
  */
 function addPlant(x, y) {
    var string =  "Plant_" + getRandomInRange(0,4);
-   var plant = game.add.sprite(x * GRID_WIDTH + CENTRE_X, (y+1) * GRID_HEIGHT, string);
+   var plant = game.add.sprite(x * GRID_WIDTH + CENTRE_X, y * GRID_HEIGHT + CENTRE_Y, string);
    plant.scale.x = 0.75;
    plant.scale.y = 0.75;
    plant.anchor.x = 0.5;
-   plant.anchor.y = 0.9;
+   plant.anchor.y = 0.5;
 }
 
 /**
- *
+ * Add a human to a random spot in the game world.
  */
 function addHuman() {
    if (currentHumans < maxHumans) {
@@ -141,15 +141,18 @@ function addHuman() {
          y = getRandomEvenInRange(0, GRID_Y);
       }
       var string =  "Human_" + getRandomInRange(0,4);
-      var human = humans.create(x * GRID_WIDTH + CENTRE_X, (y+1) * GRID_HEIGHT, string);
+      var human = humans.create(x * GRID_WIDTH + CENTRE_X, y * GRID_HEIGHT + CENTRE_Y, string);
       human.anchor.x = 0.5;
-      human.anchor.y = 0.9;
+      human.anchor.y = 0.5;
       human.scared = false;
       human.checkWorldBounds = true;
       human.outOfBoundsKill = true;
    }
 }
 
+/**
+ * Place the player in the game world
+ */
 function placePlayer() {
    var py = getRandomOddInRange(0, GRID_Y) * GRID_HEIGHT + CENTRE_Y;
    var px = getRandomInRange(0, GRID_X) * GRID_WIDTH + CENTRE_X;
@@ -158,8 +161,8 @@ function placePlayer() {
    player.anchor.y = 0.5;
    game.physics.arcade.enable(player);
    player.body.collideWorldBounds = true;
-
 }
+
 /**
  * Game control loop
  */
