@@ -55,6 +55,8 @@ function create() {
    game.physics.startSystem(Phaser.Physics.ARCADE);
 
    game.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+   game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+   game.scale.startFullScreen(false);
 
    playerLives = 3;
    score = 0;
