@@ -1,6 +1,6 @@
 // world
-var WIDTH = window.innerWidth; // or use 720
-var HEIGHT = HEIGHT = window.innerHeight; // or use 720
+var WIDTH = window.innerWidth;
+var HEIGHT = window.innerHeight;
 
 var GRID_X = 9;
 GRID_X = Math.floor(WIDTH / 100);
